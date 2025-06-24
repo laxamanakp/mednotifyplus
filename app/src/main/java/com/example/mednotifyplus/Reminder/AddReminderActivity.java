@@ -1,11 +1,15 @@
 package com.example.mednotifyplus.Reminder;
 
+import android.Manifest;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
@@ -14,6 +18,8 @@ import android.content.ActivityNotFoundException;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.mednotifyplus.R;
 
@@ -26,6 +32,9 @@ public class AddReminderActivity extends AppCompatActivity {
     DBHelperReminder dbHelperReminder;
 
     private static final int REQUEST_SOUND_PICK = 1;
+    private static final int REQUEST_READ_AUDIO = 1001;
+    private static final int REQUEST_POST_NOTIFICATION = 1002;
+
     private Uri selectedSoundUri = null;
 
     @Override
@@ -40,6 +49,8 @@ public class AddReminderActivity extends AppCompatActivity {
         btnChangeSound = findViewById(R.id.btnChangeSound);
         dbHelperReminder = new DBHelperReminder(this);
 
+        requestNecessaryPermissions();
+
         btnChangeSound.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -52,8 +63,14 @@ public class AddReminderActivity extends AppCompatActivity {
         });
 
         btnSave.setOnClickListener(v -> {
-            String name = etName.getText().toString();
-            String dosage = etDosage.getText().toString();
+            String name = etName.getText().toString().trim();
+            String dosage = etDosage.getText().toString().trim();
+
+            if (name.isEmpty() || dosage.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             int hour = timePicker.getHour();
             int minute = timePicker.getMinute();
 
@@ -63,16 +80,16 @@ public class AddReminderActivity extends AppCompatActivity {
             calendar.set(Calendar.HOUR_OF_DAY, hour);
             calendar.set(Calendar.MINUTE, minute);
 
-            // ✅ If selected time has already passed today, set for tomorrow
             if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
                 calendar.add(Calendar.DAY_OF_YEAR, 1);
             }
 
             long timeInMillis = calendar.getTimeInMillis();
 
-            long id = dbHelperReminder.addReminder(name, dosage, timeInMillis);
-            scheduleAlarm((int) id, name, dosage, timeInMillis);
+            long id = dbHelperReminder.addReminder(name, dosage, timeInMillis,
+                    selectedSoundUri != null ? selectedSoundUri.toString() : null);
 
+            scheduleAlarm((int) id, name, dosage, timeInMillis);
             Toast.makeText(this, "Reminder Set", Toast.LENGTH_SHORT).show();
             finish();
         });
@@ -93,7 +110,25 @@ public class AddReminderActivity extends AppCompatActivity {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         if (alarmManager != null) {
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+        }
+    }
+
+    private void requestNecessaryPermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_AUDIO)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_MEDIA_AUDIO},
+                        REQUEST_READ_AUDIO);
+            }
+
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                    != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                        REQUEST_POST_NOTIFICATION);
+            }
         }
     }
 
@@ -103,11 +138,15 @@ public class AddReminderActivity extends AppCompatActivity {
         if (requestCode == REQUEST_SOUND_PICK && resultCode == RESULT_OK) {
             if (data != null && data.getData() != null) {
                 selectedSoundUri = data.getData();
-                getContentResolver().takePersistableUriPermission(
-                        selectedSoundUri,
-                        Intent.FLAG_GRANT_READ_URI_PERMISSION
-                );
-                Toast.makeText(this, "Alarm sound selected!", Toast.LENGTH_SHORT).show();
+                try {
+                    getContentResolver().takePersistableUriPermission(
+                            selectedSoundUri,
+                            Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    );
+                    Toast.makeText(this, "Alarm sound selected!", Toast.LENGTH_SHORT).show();
+                } catch (SecurityException e) {
+                    Toast.makeText(this, "Permission error accessing sound", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }

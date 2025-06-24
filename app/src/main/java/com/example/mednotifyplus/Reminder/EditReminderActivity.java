@@ -4,11 +4,13 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mednotifyplus.R;
@@ -22,6 +24,7 @@ public class EditReminderActivity extends AppCompatActivity {
     DBHelperReminder dbHelperReminder;
     int reminderId;
     Calendar calendar;
+    String soundUri; // Store the soundUri passed from previous activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class EditReminderActivity extends AppCompatActivity {
         reminderId = intent.getIntExtra("id", -1);
         etName.setText(intent.getStringExtra("name"));
         etDosage.setText(intent.getStringExtra("dosage"));
+        soundUri = intent.getStringExtra("soundUri"); // get the soundUri from intent
 
         long time = intent.getLongExtra("time", 0);
         calendar = Calendar.getInstance();
@@ -55,15 +59,16 @@ public class EditReminderActivity extends AppCompatActivity {
             calendar.set(Calendar.SECOND, 0);
             calendar.set(Calendar.MILLISECOND, 0);
 
-            // ✅ Fix: If selected time is in the past, schedule for tomorrow
             if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
                 calendar.add(Calendar.DAY_OF_YEAR, 1);
             }
 
             long newTime = calendar.getTimeInMillis();
 
-            dbHelperReminder.updateReminder(reminderId, name, dosage, newTime);
-            scheduleAlarm(reminderId, name, dosage, newTime);
+            // ✅ Updated to include soundUri
+            dbHelperReminder.updateReminder(reminderId, name, dosage, newTime, soundUri);
+            scheduleAlarm(reminderId, name, dosage, newTime, soundUri);
+
             Toast.makeText(this, "Reminder Updated", Toast.LENGTH_SHORT).show();
             finish();
         });
@@ -76,10 +81,13 @@ public class EditReminderActivity extends AppCompatActivity {
         });
     }
 
-    private void scheduleAlarm(int requestCode, String name, String dosage, long timeInMillis) {
+    private void scheduleAlarm(int requestCode, String name, String dosage, long timeInMillis, String soundUri) {
         Intent intent = new Intent(this, AlarmReceiver.class);
         intent.putExtra("name", name);
         intent.putExtra("dosage", dosage);
+        if (soundUri != null) {
+            intent.putExtra("soundUri", soundUri);
+        }
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                 this, requestCode, intent,

@@ -8,13 +8,14 @@ import android.database.Cursor;
 
 public class DBHelperReminder extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "MedicineReminders.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2; // Incremented version to trigger upgrade
 
     public static final String TABLE_NAME = "MedicineReminders";
     public static final String COL_ID = "id";
     public static final String COL_NAME = "name";
     public static final String COL_DOSAGE = "dosage";
     public static final String COL_TIME = "time";
+    public static final String COL_SOUND_URI = "soundUri"; // New column
 
     public DBHelperReminder(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -26,22 +27,27 @@ public class DBHelperReminder extends SQLiteOpenHelper {
                 COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL_NAME + " TEXT, " +
                 COL_DOSAGE + " TEXT, " +
-                COL_TIME + " LONG)";
+                COL_TIME + " LONG, " +
+                COL_SOUND_URI + " TEXT)";
         db.execSQL(CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        onCreate(db);
+        // Only run when upgrading from version 1 to 2
+        if (oldVersion < 2) {
+            db.execSQL("ALTER TABLE " + TABLE_NAME + " ADD COLUMN " + COL_SOUND_URI + " TEXT");
+        }
     }
 
-    public long addReminder(String name, String dosage, long time) {
+    // Updated method to accept soundUri
+    public long addReminder(String name, String dosage, long time, String soundUri) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_NAME, name);
         values.put(COL_DOSAGE, dosage);
         values.put(COL_TIME, time);
+        values.put(COL_SOUND_URI, soundUri);
         return db.insert(TABLE_NAME, null, values);
     }
 
@@ -50,12 +56,14 @@ public class DBHelperReminder extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
     }
 
-    public int updateReminder(int id, String name, String dosage, long time) {
+    // Update method also supports soundUri now
+    public int updateReminder(int id, String name, String dosage, long time, String soundUri) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL_NAME, name);
         values.put(COL_DOSAGE, dosage);
         values.put(COL_TIME, time);
+        values.put(COL_SOUND_URI, soundUri);
         return db.update(TABLE_NAME, values, COL_ID + "=?", new String[]{String.valueOf(id)});
     }
 

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutAdminPanel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/textAdminTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Medicine Panel"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Search and Filter -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/editSearchName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Search by name" />
+
+        <Spinner
+            android:id="@+id/spinnerCategoryFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+
+    <!-- Sort -->
+    <Spinner
+        android:id="@+id/spinnerSortOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/btnInsertMedicine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Insert Data" />
+
+        <Button
+            android:id="@+id/btnSyncFirebase"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sync Now" />
+
+        <Button
+            android:id="@+id/btnViewLogs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="View Logs" />
+    </LinearLayout>
+
+    <!-- RecyclerView for medicines -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerMedicines"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:scrollbars="vertical" />
+</LinearLayout>

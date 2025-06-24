@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">mednotifyplus</string>
+
+    <string-array name="dosage_units">
+        <item>mg</item>
+        <item>ml</item>
+        <item>tablet(s)</item>
+        <item>capsule(s)</item>
+        <item>drop(s)</item>
+    </string-array>
+
+    <string name="choose_type">Choose Generic or Branded</string>
+    <string name="choose_category">Choose Category</string>
+
+</resources>

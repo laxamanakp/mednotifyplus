@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Medicine Name" />
+
+        <EditText
+            android:id="@+id/editType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type (Generic/Branded)" />
+
+        <EditText
+            android:id="@+id/editPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price This Year" />
+
+        <EditText
+            android:id="@+id/editLastPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price Last Year" />
+
+        <EditText
+            android:id="@+id/editCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Category" />
+
+        <EditText
+            android:id="@+id/editInstructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Instructions" />
+
+        <EditText
+            android:id="@+id/editReference"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Reference (e.g. Watsons)" />
+
+        <EditText
+            android:id="@+id/editMaxIntake"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Max Intake" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Medicine" />
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Medicine" />
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete Medicine" />
+
+        <Button
+            android:id="@+id/btnSync"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sync Firebase → Local" />
+
+    </LinearLayout>
+</ScrollView>

@@ -4,8 +4,9 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
@@ -24,7 +25,7 @@ public class EditReminderActivity extends AppCompatActivity {
     DBHelperReminder dbHelperReminder;
     int reminderId;
     Calendar calendar;
-    String soundUri; // Store the soundUri passed from previous activity
+    String soundUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +43,15 @@ public class EditReminderActivity extends AppCompatActivity {
         reminderId = intent.getIntExtra("id", -1);
         etName.setText(intent.getStringExtra("name"));
         etDosage.setText(intent.getStringExtra("dosage"));
-        soundUri = intent.getStringExtra("soundUri"); // get the soundUri from intent
+        soundUri = intent.getStringExtra("soundUri");
 
         long time = intent.getLongExtra("time", 0);
         calendar = Calendar.getInstance();
         calendar.setTimeInMillis(time);
         timePicker.setHour(calendar.get(Calendar.HOUR_OF_DAY));
         timePicker.setMinute(calendar.get(Calendar.MINUTE));
+
+        checkExactAlarmPermission();
 
         btnUpdate.setOnClickListener(v -> {
             String name = etName.getText().toString();
@@ -65,7 +68,6 @@ public class EditReminderActivity extends AppCompatActivity {
 
             long newTime = calendar.getTimeInMillis();
 
-            // ✅ Updated to include soundUri
             dbHelperReminder.updateReminder(reminderId, name, dosage, newTime, soundUri);
             scheduleAlarm(reminderId, name, dosage, newTime, soundUri);
 
@@ -96,7 +98,7 @@ public class EditReminderActivity extends AppCompatActivity {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         if (alarmManager != null) {
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, timeInMillis, pendingIntent);
         }
     }
 
@@ -109,6 +111,16 @@ public class EditReminderActivity extends AppCompatActivity {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         if (alarmManager != null) {
             alarmManager.cancel(pendingIntent);
+        }
+    }
+
+    private void checkExactAlarmPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            if (alarmManager != null && !alarmManager.canScheduleExactAlarms()) {
+                Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+                startActivity(intent);
+            }
         }
     }
 }

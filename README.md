@@ -16,22 +16,40 @@ Click the link to watch
 
 ## **Installation & Requirements** 
 To get started with Mednotifyplus: Reminder with Cost-Friendly Suggestions, follow the steps below:
-### **Requirements:**
-- Android Studio Meerkat (2024.3.1) installed on Windows, macOS, or Linux
-- Android device in developer mode with USB debugging enabled.
-- A USB cable to connect your device to the computer (or use the Android Emulator as an alternative)
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>✅ <strong>Requirements</strong></h3>
+      <ul>
+        <li>Android Studio Meerkat (2024.3.1) installed on Windows, macOS, or Linux</li>
+        <li>Android device in developer mode with USB debugging enabled</li>
+        <li>A USB cable to connect your device to the computer</li>
+        <li><em>Alternatively, use the Android Emulator</em></li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🚀 <strong>Installation Steps</strong></h3>
+      <ol>
+        <li><strong>Clone the Repository:</strong>
+          <pre><code>git clone https://github.com/laxamanakp/mednotifyplus.git</code></pre>
+        </li>
+        <li><strong>Install Dependencies:</strong>
+          <ul>
+            <li>Open the project in Android Studio</li>
+            <li>Let it sync and install all required dependencies</li>
+          </ul>
+        </li>
+        <li><strong>Run the App:</strong>
+          <ul>
+            <li>Connect your Android device or launch the emulator</li>
+            <li>Click <strong>Run</strong> to start the app</li>
+          </ul>
+        </li>
+      </ol>
+    </td>
+  </tr>
+</table>
 
-### **Installation Steps:**
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/laxamanakp/mednotifyplus.git
-   ```
-2. **Install Dependencies:**
-   - Open the project in Android Studio.
-   - Let Android Studio sync and install all required dependencies automatically
-3. **Run the App:**
-   - Connect your Android device (or launch an emulator)
-   - Build and run the app to monitor your medications and compare prices of over-the-counter medicines.
 
 ## Screenshots of the app
 

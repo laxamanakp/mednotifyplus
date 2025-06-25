@@ -52,7 +52,7 @@ Click the link to watch
  **College:**
   College of Computing Studies (CCS)
 
-**Department**
+**Department:**
   ITE Department
 
  **Course:**

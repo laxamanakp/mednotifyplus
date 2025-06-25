@@ -41,15 +41,15 @@ Click the link to watch
 
 ## **Academic Institution**
 
-## **School Name:**
+ **School Name:**
   Eulogio "Amang" Rodriguez Insitute of Science and Technology (EARIST MANILA)
   Nagtahan, Sampaloc, Manila, Philippines
 
-## **College:**
+ **College:**
   College of Computing Studies (CCS)
 
-## **Department**
+**Department**
   ITE Department
 
-## **Course:**
+ **Course:**
 Bachelor of Science in Information Technology

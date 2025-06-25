@@ -11,8 +11,16 @@ MedNotifyPlus is a mobile health application designed to assist users in managin
 3. Price Comparison Engine: Offers users a comparison between generic and branded alternatives, empowering them to make budget-conscious choices.
 4. Recommendation System: Provides basic suggestions based on cost-effectiveness, frequency of use, or past preferences, encouraging smarter healthcare decisions.
 
-## **Demo Video:**
-Click the link to watch
+## **🎬 Video Demo**
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=Tj5wl5Q5DcY&ab_channel=Saren%2CDanilojr.L.">
+    <img src="https://img.youtube.com/vi/Tj5wl5Q5DcY/0.jpg" alt="Watch the video" />
+  </a>
+</p>
+
+<p align="center">
+  Click the image above to watch the demo on YouTube.
+</p>
 
 ## **Installation & Requirements** 
 To get started with Mednotifyplus: Reminder with Cost-Friendly Suggestions, follow the steps below:

@@ -16,9 +16,9 @@ Click the link to watch
 ## **Installation & Requirements** 
 To get started with MedNotify+: Smart Scheduler with Cost-Friendly Suggestions, follow the steps below:
 ### **Requirements:**
-      Android Studio Meerkat (2024.3.1) installed on Windows, macOS, or Linux
-      Android device in developer mode with USB debugging enabled.
-      A USB cable to connect your device to the computer (or use the Android Emulator as an alternative)
+- Android Studio Meerkat (2024.3.1) installed on Windows, macOS, or Linux
+- Android device in developer mode with USB debugging enabled.
+- A USB cable to connect your device to the computer (or use the Android Emulator as an alternative)
 
 ### **Installation Steps:**
 1. **Clone the Repository:**

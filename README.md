@@ -34,7 +34,7 @@ To get started with Mednotifyplus: Reminder with Cost-Friendly Suggestions, foll
 
 ## Screenshots of the app
 - **Dashboard
-![Image1]([Link](https://github.com/laxamanakp/mednotifyplus/blob/main/Screenshot/496508605_23896565163363785_5640277546556873448_n.jpg))
+![Image1](https://github.com/laxamanakp/mednotifyplus/blob/main/Screenshot/496508605_23896565163363785_5640277546556873448_n.jpg)
 
 ## **Researcher/Developer:**
 - Monacillo, Princes Mica

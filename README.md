@@ -36,14 +36,20 @@ Click the link to watch
 - Saren, Danilo Jr.
 - Pacia, Clyde
 
-
 ## **Adviser:**
 - Jefferson A. Costales
 
+## **Academic Institution**
+
 ## **School Name:**
-  Eulogio "Amang" Rodriguez Insitute of Science and Technology
+  Eulogio "Amang" Rodriguez Insitute of Science and Technology (EARIST MANILA)
   Nagtahan, Sampaloc, Manila, Philippines
-  College of Computing Studies
+
+## **College:**
+  College of Computing Studies (CCS)
+
+## **Department**
+  ITE Department
 
 ## **Course:**
-  IT Department
+Bachelor of Science in Information Technology

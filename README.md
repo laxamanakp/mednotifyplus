@@ -64,14 +64,14 @@ To get started with Mednotifyplus: Reminder with Cost-Friendly Suggestions, foll
 
 ---
 
-### 💵 Price Comparison Engine
+### 🤖 Recommendation System
 <div align="center">
   <img src="https://github.com/laxamanakp/mednotifyplus/blob/main/Screenshot/496515071_1562633304695151_8808988263267767179_n.jpg?raw=true" width="300"/>
 </div>
 
 ---
 
-### 🤖 Recommendation System
+### 💵 Price Comparison Engine
 <div align="center">
   <img src="https://github.com/laxamanakp/mednotifyplus/blob/main/Screenshot/recommendation.jpg?raw=true" width="300"/>
 </div>

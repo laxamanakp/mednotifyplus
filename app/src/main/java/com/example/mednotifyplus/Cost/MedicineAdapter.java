@@ -17,7 +17,7 @@ import java.util.List;
 
 public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.MedViewHolder> {
 
-    private final List<Medicine> medicines;
+    private List<Medicine> medicines;
     private final Context context;
     private final OnMedicineActionListener listener;
     private final boolean showEditDelete;
@@ -108,6 +108,15 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.MedVie
     @Override
     public int getItemCount() {
         return medicines.size();
+    }
+
+    /**
+     * This method allows the adapter to refresh its data.
+     * Call this from MainActivityCost after filtering.
+     */
+    public void updateList(List<Medicine> newList) {
+        this.medicines = newList;
+        notifyDataSetChanged();
     }
 
     static class MedViewHolder extends RecyclerView.ViewHolder {

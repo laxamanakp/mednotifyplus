@@ -1,4 +1,4 @@
-# **Title:** Mednotifyplus: Reminder with Cost-Friendly Suggestions
+# **Mednotifyplus: Reminder with Cost-Friendly Suggestions**
 
 ## **Overview:**
 MedNotifyPlus is a mobile health application designed to assist users in managing their medication intake effectively while promoting cost-efficiency through intelligent suggestions. This app is tailored for patients, caregivers, and health-conscious individuals, the app combines medication reminders with a built-in recommendation engine that compares prices between branded and generic drugs.

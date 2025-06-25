@@ -6,7 +6,7 @@ MedNotifyPlus is a mobile health application designed to assist users in managin
 ## **Requirements:**
 
 ## **Features:**
-
+1. Medication Reminders: Users can input medicine details (name, dosage, and time) to receive timely notifications.
 ## **Demo Video:**
 Click the link to watch 
 

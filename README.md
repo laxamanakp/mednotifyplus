@@ -1,14 +1,14 @@
 # **Title:** Mednotifyplus: Reminder with Cost-Friendly Suggestions
 
-**Overview:**
+## **Overview:**
 
-**Requirements:**
+## **Requirements:**
 
-**Features:**
+## **Features:**
 
-**Demo Video:**
+## **Demo Video:**
 
-**Researcher/Developer:**
+## **Researcher/Developer:**
 - Monacillo, Princes Mica
 - Laxamana, King Phillip
 - Jacinto, Jeruel Lenard 
@@ -16,13 +16,13 @@
 - Pacia, Clyde
 
 
-**Adviser:**
+## **Adviser:**
 - Jefferson A. Costales
 
-**School Name:**
+## **School Name:**
   Eulogio "Amang" Rodriguez Insitute of Science and Technology
   Nagtahan, Sampaloc, Manila, Philippines
   College of Computing Studies
 
-**Course:**
+## **Course:**
   IT Department

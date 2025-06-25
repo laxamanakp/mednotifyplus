@@ -14,7 +14,7 @@ MedNotifyPlus is a mobile health application designed to assist users in managin
 Click the link to watch
 
 ## **Installation & Requirements** 
-To get started with MedNotify+: Smart Scheduler with Cost-Friendly Suggestions, follow the steps below:
+To get started with Mednotifyplus: Reminder with Cost-Friendly Suggestions, follow the steps below:
 ### **Requirements:**
 - Android Studio Meerkat (2024.3.1) installed on Windows, macOS, or Linux
 - Android device in developer mode with USB debugging enabled.

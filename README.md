@@ -29,6 +29,10 @@ Click the link to watch
 - Android device in developer mode with USB debugging enabled.
 - USB cable (to connect Android device to your computer).
 
+## Screenshots of the app
+- **Dashboard
+![Image1](Link)
+
 ## **Researcher/Developer:**
 - Monacillo, Princes Mica
 - Laxamana, King Phillip

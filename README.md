@@ -59,7 +59,7 @@ To get started with Mednotifyplus: Reminder with Cost-Friendly Suggestions, foll
 </table>
 
 
-## Screenshots of the app
+## 📷 Screenshots of the app 
 
 ### 📊 Dashboard
 <div align="center">
@@ -138,7 +138,7 @@ To get started with Mednotifyplus: Reminder with Cost-Friendly Suggestions, foll
 
 
 
-## **Researcher/Developer:**
+## 📄 Project Contributors/Researchers/Developers:
 <div align="center">
 <table>
   <tr>
@@ -166,7 +166,7 @@ To get started with Mednotifyplus: Reminder with Cost-Friendly Suggestions, foll
 </table>
 </div>
 
-## **Adviser:**
+## **🎓 Adviser:**
 <div align="center">
 <table>
   <tr>
@@ -178,7 +178,7 @@ To get started with Mednotifyplus: Reminder with Cost-Friendly Suggestions, foll
 </table>
 </div>
 
-## **Academic Institution**
+## **🏫 Academic Institution**
 
  **School Name:**
   Eulogio "Amang" Rodriguez Insitute of Science and Technology (EARIST MANILA)

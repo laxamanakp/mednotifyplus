@@ -13,21 +13,24 @@ MedNotifyPlus is a mobile health application designed to assist users in managin
 ## **Demo Video:**
 Click the link to watch
 
-## **Installation:**
+## **Installation & Requirements** 
+To get started with MedNotify+: Smart Scheduler with Cost-Friendly Suggestions, follow the steps below:
+### **Requirements:**
+   Android Studio Meerkat (2024.3.1) installed on Windows, macOS, or Linux
+   Android device in developer mode with USB debugging enabled.
+   A USB cable to connect your device to the computer (or use the Android Emulator as an alternative)
+
+### **Installation Steps:**
 1. **Clone the Repository:**
    ```bash
-   https://github.com/laxamanakp/mednotifyplus.git
+   git clone https://github.com/laxamanakp/mednotifyplus.git
    ```
 2. **Install Dependencies:**
-   - Open the project in Android Studio and let it handle dependencies.
+   - Open the project in Android Studio.
+   - Let Android Studio sync and install all required dependencies automatically
 3. **Run the App:**
-   - Connect your Android device or use an emulator.
+   - Connect your Android device (or launch an emulator)
    - Build and run the app to monitor your medications and compare prices of over-the-counter medicines.
-
-## **Requirements:**
-- Android Studio Meerkat | 2024.3.1   (installed on a Mac, Linux, or Windows machine) .
-- Android device in developer mode with USB debugging enabled.
-- USB cable (to connect Android device to your computer).
 
 ## Screenshots of the app
 - **Dashboard

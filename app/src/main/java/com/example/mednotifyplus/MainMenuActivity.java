@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mednotifyplus.Cost.AdminActivity;
+import com.example.mednotifyplus.Admin.AdminLoginActivity;
+
 import com.example.mednotifyplus.Cost.MainActivityCost;
 import com.example.mednotifyplus.Reminder.MainActivityReminder;
 import com.example.mednotifyplus.databinding.ActivityMainMenuBinding;
@@ -30,6 +31,6 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MainActivityCost.class)));
 
         binding.btnAdmin.setOnClickListener(v ->
-                startActivity(new Intent(this, AdminActivity.class)));
+                startActivity(new Intent(this, AdminLoginActivity.class)));
     }
 }

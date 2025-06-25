@@ -1,72 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="24dp"
     android:background="#FFFFFF"
-    android:gravity="center"
     tools:context=".MainMenuActivity">
 
-    <!-- App Logo -->
-    <ImageView
-        android:id="@+id/appLogo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/logo"
-        android:contentDescription="App Logo" />
 
-    <!-- App Title -->
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MedNotify+"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#1E293B"
-        android:layout_marginBottom="32dp" />
+    <LinearLayout
+        android:id="@+id/adminBox"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="#E0E7FF"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:elevation="6dp"
+        android:padding="4dp">
 
-    <!-- Medicine Reminder Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnReminder"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="🛠"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            app:cornerRadius="0dp"
+            app:backgroundTint="#4F46E5" />
+    </LinearLayout>
+
+
+    <!-- Remaining UI in a vertical layout below the admin box -->
+    <LinearLayout
+        android:id="@+id/mainContent"
+        android:layout_below="@id/adminBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="💊 Medicine Reminder"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="16dp"
-        app:backgroundTint="#4F46E5"
-        app:iconPadding="8dp"
-        android:padding="14dp" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="24dp">
 
-    <!-- Price Comparison Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnCostSuggest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="💰 Price Comparison"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="16dp"
-        app:backgroundTint="#4F46E5"
-        app:iconPadding="8dp"
-        android:padding="14dp" />
+        <!-- App Logo -->
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/logo"
+            android:contentDescription="App Logo" />
 
-    <!-- Admin Button -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🛠 Admin"
-        android:textColor="@android:color/white"
-        app:cornerRadius="16dp"
-        app:backgroundTint="#4F46E5"
-        app:iconPadding="8dp"
-        android:padding="14dp" />
+        <!-- App Title -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MedNotify+"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#1E293B"
+            android:layout_marginBottom="32dp" />
 
-</LinearLayout>
+        <!-- Medicine Reminder Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReminder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💊 Medicine Reminder"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="16dp"
+            app:backgroundTint="#4F46E5"
+            app:iconPadding="8dp"
+            android:padding="14dp" />
+
+        <!-- Price Comparison Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCostSuggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💰 Price Comparison"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="16dp"
+            app:backgroundTint="#4F46E5"
+            app:iconPadding="8dp"
+            android:padding="14dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
